@@ -27,8 +27,8 @@ function average(arr) {
 // Take an array of strings and return the longest string.
 function longestString(arr) {
 
-    longestWord = arr.reduce(function(x, y) {
-        if(x.length > y.length) {
+    longestWord = arr.reduce(function (x, y) {
+        if (x.length > y.length) {
             return x;
         } else {
             return y;
@@ -46,13 +46,13 @@ function stringsLongerThan(arr, num) {
 
 // Print every number between 1 and n without using loops
 function printBetween(n, start = 1) {
-    
-    if(start > n) {
+
+    if (start > n) {
         return;
     }
     console.log(start);
     return printBetween(n, start + 1);
-    
+
 }
 
 console.log("Sum: ", sum([0, 1, 2, 3, 4]));
@@ -61,14 +61,14 @@ console.log("Longest String: ", longestString(["word", "anotherWord", "different
 console.log("String Longer than num: ", stringsLongerThan(["word", "anotherWord", "differentWord", "thisWord"], 7));
 console.log("printBetween: ");
 printBetween(4);
-console.log("=====================================")
+console.log("=====================================");
 
 // Part 2: Thinking Methodically
 
 let data = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
 
 // Sort the array by age.
-function sortData(){
+function sortData() {
     let sortedByAge = data.sort((x, y) => x.age - y.age);
     return sortedByAge;
 }
@@ -81,8 +81,8 @@ function removeGreaterThan() {
 
 // Map the array to change the “occupation” key to “job” and increment every age by 1.
 function changeJobAndAge() {
-    
-    let mappedArr = data.map((x) => { 
+
+    data.map((x) => {
         //increment age by 1
         x.age = parseInt(x.age) + 1
         // change occupation key to a job key
@@ -103,7 +103,30 @@ function reduceAvgAge() {
 
 
 
-console.log(sortData());
-console.log(removeGreaterThan());
-console.log(changeJobAndAge());
-console.log(reduceAvgAge());
+console.log("Sorted by age: ", sortData());
+console.log("Remove greater than 50: ", removeGreaterThan());
+console.log("Change Job and Age: ", changeJobAndAge());
+console.log("Reduce sum of ages, average: ", reduceAvgAge());
+console.log("=====================================");
+
+// Part 3: Thinking Critically
+
+let obj1 = {
+    name: "peter",
+    age: 42,
+    updated_at: Date(Date.now())
+}
+
+function incrementAge(obj) {
+    return obj.age += + 1;
+}
+
+incrementAge(obj1);
+console.log("Original: ", obj1);
+
+let obj1Copy = obj1;
+incrementAge(obj1Copy);
+console.log("Copy: ", obj1Copy);
+console.log("Original: ", obj1);
+
+
